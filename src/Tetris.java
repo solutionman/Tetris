@@ -1,7 +1,4 @@
-
-/**
- * Created by Dima on 30.06.2015.
- */
+// Tetris Game
 
 import java.awt.event.*;
 import javax.swing.*;
@@ -46,10 +43,11 @@ public class Tetris extends JFrame {
         Tetris gui = new Tetris();
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gui.setVisible(true);
-        gui.setSize(400,600);
+        gui.setSize(800,1000);
         gui.setTitle("Tetris");
         gui.setResizable(false);
-        gui.setIconImage(tetrisicon.getImage());
+        //gui.setIconImage(tetrisicon.getImage());
 
     }
 }
+
