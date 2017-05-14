@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     public static void main(String[] args) {
 
-        SwingUtilities.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater(new Runnable(){
             @Override
             public void run() {
                 JFrame frame = new JFrame("Tetris");
@@ -21,19 +21,27 @@ public class Main {
                 frame.setLayout(new GridLayout(2,3));
                 frame.setVisible(true);
 
-                ShowSomeGraphics rect = new ShowSomeGraphics(180, 150, 50, 50);
+                ShowSomeGraphics rect = new ShowSomeGraphics(100, 120, 50, 50);
                 frame.add(rect);
 
-
-
-
-                JButton right = new JButton("Right");
-                frame.add(right);
-                right.addActionListener(new ActionListener() {
+                frame.addKeyListener(new KeyListener() {
                     @Override
-                    public void actionPerformed(ActionEvent e) {
-                        rect.setX(10);
-                        rect.repaint();
+                    public void keyTyped(KeyEvent e) {
+                        if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+                            rect.setX(10);
+                            rect.repaint();
+                            System.out.println("Right arrow pressed");
+                        }
+                    }
+
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+
+                    }
+
+                    @Override
+                    public void keyReleased(KeyEvent e) {
+
                     }
                 });
 
@@ -46,6 +54,19 @@ public class Main {
                         rect.repaint();
                     }
                 });
+
+                JButton right = new JButton("Right");
+                frame.add(right);
+                right.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        rect.setX(10);
+                        rect.repaint();
+                        System.out.println("Right button pressed.");
+                    }
+                });
+
+
 
 
                 JButton up = new JButton("Up");
