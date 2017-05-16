@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,9 +23,23 @@ public class Main {
                 ShowSomeGraphics rect = new ShowSomeGraphics(100, 120, 50, 50);
                 frame.add(rect);
 
+                frame.setFocusable(true);
+                frame.requestFocus();
                 frame.addKeyListener(new KeyListener() {
                     @Override
                     public void keyTyped(KeyEvent e) {
+                        if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+                            rect.setX(10);
+                            rect.repaint();
+                            //System.out.println("Right arrow pressed");
+                        } else if(e.getKeyCode() == KeyEvent.VK_LEFT){
+                            rect.setX(-10);
+                            rect.repaint();
+                        }
+                    }
+
+                    @Override
+                    public void keyPressed(KeyEvent e) {
                         if(e.getKeyCode() == KeyEvent.VK_RIGHT){
                             rect.setX(10);
                             rect.repaint();
@@ -35,16 +48,15 @@ public class Main {
                     }
 
                     @Override
-                    public void keyPressed(KeyEvent e) {
-
-                    }
-
-                    @Override
                     public void keyReleased(KeyEvent e) {
-
+                        if(e.getKeyCode() == KeyEvent.VK_0){
+                            rect.setX(10);
+                            rect.repaint();
+                            System.out.println("Right arrow pressed");
+                        }
                     }
                 });
-
+/*
                 JButton left = new JButton("Left");
                 frame.add(left);
                 left.addActionListener(new ActionListener() {
@@ -88,10 +100,12 @@ public class Main {
                         rect.repaint();
                     }
                 });
-
+*/
 
             }
         });
     }
 }
+
+
 
