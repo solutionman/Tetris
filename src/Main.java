@@ -28,35 +28,52 @@ public class Main {
                 frame.addKeyListener(new KeyListener() {
                     @Override
                     public void keyTyped(KeyEvent e) {
-                        if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-                            rect.setX(10);
-                            rect.repaint();
-                            //System.out.println("Right arrow pressed");
-                        } else if(e.getKeyCode() == KeyEvent.VK_LEFT){
-                            rect.setX(-10);
-                            rect.repaint();
-                        }
                     }
 
                     @Override
                     public void keyPressed(KeyEvent e) {
-                        if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+                        if(e.getKeyCode() == KeyEvent.VK_D){
                             rect.setX(10);
                             rect.repaint();
                             System.out.println("Right arrow pressed");
+                        } else if(e.getKeyCode() == KeyEvent.VK_A){
+                            rect.setX(-10);
+                            rect.repaint();
+                            System.out.println("Left arrow pressed");
                         }
                     }
 
                     @Override
                     public void keyReleased(KeyEvent e) {
-                        if(e.getKeyCode() == KeyEvent.VK_0){
-                            rect.setX(10);
-                            rect.repaint();
-                            System.out.println("Right arrow pressed");
-                        }
+
                     }
                 });
 /*
+                frame.addKeyListener(new KeyListener() {
+                    @Override
+                    public void keyTyped(KeyEvent e) {
+
+                    }
+
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        if(e.getKeyCode() == KeyEvent.VK_A){
+                            rect.setX(-10);
+                            rect.repaint();
+                            System.out.println("Left arrow pressed");
+                        }
+                    }
+
+                    @Override
+                    public void keyReleased(KeyEvent e) {
+
+                    }
+                });
+
+*/
+
+
+                /*
                 JButton left = new JButton("Left");
                 frame.add(left);
                 left.addActionListener(new ActionListener() {
@@ -100,7 +117,7 @@ public class Main {
                         rect.repaint();
                     }
                 });
-*/
+                */
 
             }
         });
