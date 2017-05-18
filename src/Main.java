@@ -10,17 +10,22 @@ import java.awt.event.KeyListener;
 public class Main {
     public static void main(String[] args) {
 
+        final int FRAMEWIDTH = 800;
+        final int FRAMEHEIGHT = 600;
+        final int RECTWIDTH = 50;
+        final int RECTHEIGHT = 50;
+
         SwingUtilities.invokeLater(new Runnable(){
             @Override
             public void run() {
                 JFrame frame = new JFrame("Tetris");
-                frame.setSize(800, 600);
+                frame.setSize(FRAMEWIDTH, FRAMEHEIGHT);
                 frame.setResizable(false);
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                frame.setLayout(new GridLayout(2,3));
+                //frame.setLayout(new GridLayout(2,3));
                 frame.setVisible(true);
 
-                ShowSomeGraphics rect = new ShowSomeGraphics(100, 120, 50, 50);
+                ShowSomeGraphics rect = new ShowSomeGraphics(100, 120, RECTWIDTH, RECTHEIGHT, FRAMEWIDTH, FRAMEHEIGHT);
                 frame.add(rect);
 
                 frame.setFocusable(true);
@@ -35,11 +40,17 @@ public class Main {
                         if(e.getKeyCode() == KeyEvent.VK_D){
                             rect.setX(10);
                             rect.repaint();
-                            System.out.println("Right arrow pressed");
+                            //System.out.println("Right arrow pressed");
                         } else if(e.getKeyCode() == KeyEvent.VK_A){
                             rect.setX(-10);
                             rect.repaint();
-                            System.out.println("Left arrow pressed");
+                            //System.out.println("Left arrow pressed");
+                        } else if(e.getKeyCode() == KeyEvent.VK_W){
+                            rect.setY(-10);
+                            rect.repaint();
+                        } else if(e.getKeyCode() == KeyEvent.VK_S){
+                            rect.setY(10);
+                            rect.repaint();
                         }
                     }
 
