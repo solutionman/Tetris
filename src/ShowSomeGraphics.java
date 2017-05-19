@@ -23,14 +23,20 @@ public class ShowSomeGraphics  extends Canvas {
 
     public void setX(int x){
 
-        if (this.x + x > FRAMEWIDTH + 750){
-            this.x = FRAMEWIDTH + 750;
+        if (this.x + x > 750){
+            this.x = 750;
+        } else if(this.x + x < 0){
+            this.x = 0;
         } else {
             this.x = this.x + x;
         }
     }
 
     public void setY(int y){
-        this.y = this.y + y;
+        if(this.y + y< 0){
+            this.y = 0;
+        } else {
+            this.y = this.y + y;
+        }
     }
 }
