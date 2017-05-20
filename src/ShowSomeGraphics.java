@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class ShowSomeGraphics  extends Canvas {
+public class ShowSomeGraphics extends Canvas {
 
     private int x;
     private int y;
@@ -9,11 +9,11 @@ public class ShowSomeGraphics  extends Canvas {
     private int FRAMEWIDTH;
     private int FRAMEHEIGHT;
 
-    public ShowSomeGraphics(){
+    public ShowSomeGraphics() {
 
     }
 
-    public ShowSomeGraphics(int x, int y, int width, int height, int FRAMEWIDTH, int FRAMEHEIGHT){
+    public ShowSomeGraphics(int x, int y, int width, int height, int FRAMEWIDTH, int FRAMEHEIGHT) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -21,23 +21,23 @@ public class ShowSomeGraphics  extends Canvas {
 
     }
 
-    public void paint(Graphics g){
+    public void paint(Graphics g) {
         g.fillRect(x, y, width, height);
     }
 
-    public void setX(int x){
+    public void setX(int x) {
 
-        if (this.x + x > 750){
+        if (this.x + x > 750) {
             this.x = 750;
-        } else if(this.x + x < 0){
+        } else if (this.x + x < 0) {
             this.x = 0;
         } else {
             this.x = this.x + x;
         }
     }
 
-    public void setY(int y){
-        if(this.y + y< 0){
+    public void setY(int y) {
+        if (this.y + y < 0) {
             this.y = 0;
         } else {
             this.y = this.y + y;

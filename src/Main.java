@@ -15,7 +15,7 @@ public class Main {
         final int RECTWIDTH = 50;
         final int RECTHEIGHT = 50;
 
-        SwingUtilities.invokeLater(new Runnable(){
+        SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 JFrame frame = new JFrame("Tetris");
@@ -32,8 +32,17 @@ public class Main {
                 frame.setFocusableWindowState(true);
                 frame.requestFocus();
 
+                // Here we move our figure to bottom
+                Timer timer = new Timer(20, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        rect.setY(1);
+                        rect.repaint();
+                    }
+                });
+                timer.start();
 
-
+                // here we bound keys to manipulate the object
                 frame.addKeyListener(new KeyListener() {
                     @Override
                     public void keyTyped(KeyEvent e) {
@@ -41,18 +50,18 @@ public class Main {
 
                     @Override
                     public void keyPressed(KeyEvent e) {
-                        if(e.getKeyCode() == KeyEvent.VK_D){
+                        if (e.getKeyCode() == KeyEvent.VK_D) {
                             rect.setX(10);
                             rect.repaint();
                             //System.out.println("Right arrow pressed");
-                        } else if(e.getKeyCode() == KeyEvent.VK_A){
+                        } else if (e.getKeyCode() == KeyEvent.VK_A) {
                             rect.setX(-10);
                             rect.repaint();
                             //System.out.println("Left arrow pressed");
-                        } else if(e.getKeyCode() == KeyEvent.VK_W){
+                        } else if (e.getKeyCode() == KeyEvent.VK_W) {
                             rect.setY(-10);
                             rect.repaint();
-                        } else if(e.getKeyCode() == KeyEvent.VK_S){
+                        } else if (e.getKeyCode() == KeyEvent.VK_S) {
                             rect.setY(10);
                             rect.repaint();
                         }
@@ -63,91 +72,6 @@ public class Main {
 
                     }
                 });
-
-                /*
-                // move our object down to bottom
-                try{
-                    while(true){
-                        rect.setX(10);
-                        Thread.sleep(1000);
-                        rect.repaint();
-                    }
-                } catch (InterruptedException e){
-                    System.out.println("Exception in moving");
-                }
-                */
-
-
-/*
-                frame.addKeyListener(new KeyListener() {
-                    @Override
-                    public void keyTyped(KeyEvent e) {
-
-                    }
-
-                    @Override
-                    public void keyPressed(KeyEvent e) {
-                        if(e.getKeyCode() == KeyEvent.VK_A){
-                            rect.setX(-10);
-                            rect.repaint();
-                            System.out.println("Left arrow pressed");
-                        }
-                    }
-
-                    @Override
-                    public void keyReleased(KeyEvent e) {
-
-                    }
-                });
-
-*/
-
-
-                /*
-                JButton left = new JButton("Left");
-                frame.add(left);
-                left.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        rect.setX(-10);
-                        rect.repaint();
-                    }
-                });
-
-                JButton right = new JButton("Right");
-                frame.add(right);
-                right.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        rect.setX(10);
-                        rect.repaint();
-                        System.out.println("Right button pressed.");
-                    }
-                });
-
-
-
-
-                JButton up = new JButton("Up");
-                frame.add(up);
-                up.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        rect.setY(-10);
-                        rect.repaint();
-                    }
-                });
-
-                JButton down = new JButton("down");
-                frame.add(down);
-                down.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        rect.setY(10);
-                        rect.repaint();
-                    }
-                });
-                */
 
             }
         });
