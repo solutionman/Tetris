@@ -9,6 +9,10 @@ public class ShowSomeGraphics  extends Canvas {
     private int FRAMEWIDTH;
     private int FRAMEHEIGHT;
 
+    public ShowSomeGraphics(){
+
+    }
+
     public ShowSomeGraphics(int x, int y, int width, int height, int FRAMEWIDTH, int FRAMEHEIGHT){
         this.x = x;
         this.y = y;

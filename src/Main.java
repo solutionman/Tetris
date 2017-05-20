@@ -30,6 +30,9 @@ public class Main {
 
                 frame.setFocusable(true);
                 frame.requestFocus();
+
+
+
                 frame.addKeyListener(new KeyListener() {
                     @Override
                     public void keyTyped(KeyEvent e) {
@@ -59,6 +62,21 @@ public class Main {
 
                     }
                 });
+
+                /*
+                // move our object down to bottom
+                try{
+                    while(true){
+                        rect.setX(10);
+                        Thread.sleep(1000);
+                        rect.repaint();
+                    }
+                } catch (InterruptedException e){
+                    System.out.println("Exception in moving");
+                }
+                */
+
+
 /*
                 frame.addKeyListener(new KeyListener() {
                     @Override
