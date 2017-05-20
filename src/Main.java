@@ -29,6 +29,7 @@ public class Main {
                 frame.add(rect);
 
                 frame.setFocusable(true);
+                frame.setFocusableWindowState(true);
                 frame.requestFocus();
 
 
