@@ -6,14 +6,12 @@ public class ShowSomeGraphics extends Canvas {
     private int y;
     private int width;
     private int height;
-    private int FRAMEWIDTH;
-    private int FRAMEHEIGHT;
 
     public ShowSomeGraphics() {
 
     }
 
-    public ShowSomeGraphics(int x, int y, int width, int height, int FRAMEWIDTH, int FRAMEHEIGHT) {
+    public ShowSomeGraphics(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -39,6 +37,8 @@ public class ShowSomeGraphics extends Canvas {
     public void setY(int y) {
         if (this.y + y < 0) {
             this.y = 0;
+        } else if(this.y > 520){
+            this.y = 520;
         } else {
             this.y = this.y + y;
         }

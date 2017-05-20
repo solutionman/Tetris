@@ -25,8 +25,8 @@ public class Main {
                 //frame.setLayout(new GridLayout(2,3));
                 frame.setVisible(true);
 
-                ShowSomeGraphics rect = new ShowSomeGraphics(100, 120, RECTWIDTH, RECTHEIGHT, FRAMEWIDTH, FRAMEHEIGHT);
-                frame.add(rect);
+                ShowSomeGraphics figure = new ShowSomeGraphics(370, 0, RECTWIDTH, RECTHEIGHT);
+                frame.add(figure);
 
                 frame.setFocusable(true);
                 frame.setFocusableWindowState(true);
@@ -36,8 +36,8 @@ public class Main {
                 Timer timer = new Timer(20, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        rect.setY(1);
-                        rect.repaint();
+                        figure.setY(1);
+                        figure.repaint();
                     }
                 });
                 timer.start();
@@ -51,19 +51,19 @@ public class Main {
                     @Override
                     public void keyPressed(KeyEvent e) {
                         if (e.getKeyCode() == KeyEvent.VK_D) {
-                            rect.setX(10);
-                            rect.repaint();
+                            figure.setX(10);
+                            figure.repaint();
                             //System.out.println("Right arrow pressed");
                         } else if (e.getKeyCode() == KeyEvent.VK_A) {
-                            rect.setX(-10);
-                            rect.repaint();
+                            figure.setX(-10);
+                            figure.repaint();
                             //System.out.println("Left arrow pressed");
                         } else if (e.getKeyCode() == KeyEvent.VK_W) {
-                            rect.setY(-10);
-                            rect.repaint();
+                            figure.setY(-10);
+                            figure.repaint();
                         } else if (e.getKeyCode() == KeyEvent.VK_S) {
-                            rect.setY(10);
-                            rect.repaint();
+                            figure.setY(150);
+                            figure.repaint();
                         }
                     }
 
