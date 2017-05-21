@@ -43,7 +43,7 @@ public class Main {
                     public void actionPerformed(ActionEvent e) {
                         figure.setY(1);
                         figure.repaint();
-                        if (figure.getY() == 520){
+                        if (figure.getY() == FRAMEHEIGHT - 30 - figure.getHeight()){
                             ShowSomeGraphics figure2 = new ShowSomeGraphics(figure.getX(), figure.getY(), RECTWIDTH, RECTHEIGHT);
                             frame.add(figure2);
                             figure2.repaint();
@@ -54,7 +54,6 @@ public class Main {
                     }
                 });
                 timer.start();
-
 
 
                 // here we bound keys to manipulate the object
@@ -94,6 +93,7 @@ public class Main {
         });
     }
 }
+
 
 
 
