@@ -12,7 +12,7 @@ public class Main {
 
         final int FRAMEWIDTH = 800;
         final int FRAMEHEIGHT = 600;
-        final int RECTWIDTH = 50;
+        final int RECTWIDTH = 100;
         final int RECTHEIGHT = 50;
 
         SwingUtilities.invokeLater(new Runnable() {
@@ -25,12 +25,17 @@ public class Main {
                 //frame.setLayout(new GridLayout(2,3));
                 frame.setVisible(true);
 
-                ShowSomeGraphics figure = new ShowSomeGraphics(370, 0, RECTWIDTH, RECTHEIGHT);
-                frame.add(figure);
-
                 frame.setFocusable(true);
                 frame.setFocusableWindowState(true);
                 frame.requestFocus();
+
+                // from here we work with figure
+                ShowSomeGraphics figure = new ShowSomeGraphics(370, 0, RECTWIDTH, RECTHEIGHT);
+                //ShowSomeGraphics figure2 = new ShowSomeGraphics(300, 0, RECTHEIGHT, RECTHEIGHT);
+
+                frame.add(figure);
+                //frame.add(figure2);
+
 
                 // Here we move our figure to bottom
                 Timer timer = new Timer(20, new ActionListener() {
@@ -38,9 +43,19 @@ public class Main {
                     public void actionPerformed(ActionEvent e) {
                         figure.setY(1);
                         figure.repaint();
+                        if (figure.getY() == 520){
+                            ShowSomeGraphics figure2 = new ShowSomeGraphics(figure.getX(), figure.getY(), RECTWIDTH, RECTHEIGHT);
+                            frame.add(figure2);
+                            figure2.repaint();
+                            figure.setX(-(370 - figure.getX()));
+                            figure.setY(-520);
+                            figure.repaint();
+                        }
                     }
                 });
                 timer.start();
+
+
 
                 // here we bound keys to manipulate the object
                 frame.addKeyListener(new KeyListener() {
@@ -59,7 +74,9 @@ public class Main {
                             figure.repaint();
                             //System.out.println("Left arrow pressed");
                         } else if (e.getKeyCode() == KeyEvent.VK_W) {
-                            figure.setY(-10);
+                            int temp = figure.getWidth();
+                            figure.setWidth(figure.getHeight());
+                            figure.setHeight(temp);
                             figure.repaint();
                         } else if (e.getKeyCode() == KeyEvent.VK_S) {
                             figure.setY(150);
