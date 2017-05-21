@@ -24,8 +24,8 @@ public class ShowSomeGraphics extends Canvas {
 
     public void setX(int x) {
 
-        if (this.x + x > 750) {
-            this.x = 750;
+        if (this.x + x > 800 - width) {
+            this.x = 800 - width;
         } else if (this.x + x < 0) {
             this.x = 0;
         } else {
