@@ -22,24 +22,32 @@ public class Main {
                 frame.setSize(FRAMEWIDTH, FRAMEHEIGHT);
                 frame.setResizable(false);
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                //frame.setLayout(new FlowLayout());
+                frame.setLayout(new BorderLayout());
                 //frame.pack();
                 frame.setVisible(true);
-
 
 
                 frame.setFocusable(true);
                 frame.setFocusableWindowState(true);
                 frame.requestFocus();
 
+                //JPanel panel = new JPanel();
+                //panel.setVisible(true);
+                //frame.add(panel);
+
                 // from here we work with figure
                 ShowSomeGraphics figure = new ShowSomeGraphics(370, 0, RECTWIDTH, RECTHEIGHT);
-                ShowStaticGraphics figure2 = new ShowStaticGraphics();
+                ShowStaticGraphics figure2 = new ShowStaticGraphics(400, 300);
+                ShowStaticGraphics figure3 = new ShowStaticGraphics(450, 350);
 
-                // why only one shown?
-
+                // why only last added shown?
+                frame.add(figure2);
+                frame.add(figure3);
                 frame.add(figure);
-
+                //panel.add(figure);
+                //frame.add(figure2);
+                //frame.add(figure3);
+                //frame.pack();
 
 
                 // Here we move our figure to bottom
