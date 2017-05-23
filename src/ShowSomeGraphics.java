@@ -3,7 +3,9 @@ import java.awt.*;
 public class ShowSomeGraphics extends Canvas {
 
     private int x;
+    private int x1;
     private int y;
+    private int y1;
     private int width;
     private int height;
 
@@ -18,8 +20,18 @@ public class ShowSomeGraphics extends Canvas {
         this.height = height;
     }
 
+    public ShowSomeGraphics(int x, int x1, int y, int y1, int width, int height){
+        this.x = x;
+        this.x1 = x1;
+        this.y = y;
+        this.y1  = y1;
+        this.width = width;
+        this.height = height;
+    }
+
     public void paint(Graphics g) {
         g.fillRect(x, y, width, height);
+        g.fillRect(x1, y1, width, height);
     }
 
     public void setX(int x) {

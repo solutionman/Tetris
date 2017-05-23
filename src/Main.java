@@ -12,7 +12,7 @@ public class Main {
 
         final int FRAMEWIDTH = 800;
         final int FRAMEHEIGHT = 600;
-        final int RECTWIDTH = 100;
+        final int RECTWIDTH = 50;
         final int RECTHEIGHT = 50;
 
         SwingUtilities.invokeLater(new Runnable() {
@@ -22,8 +22,6 @@ public class Main {
                 frame.setSize(FRAMEWIDTH, FRAMEHEIGHT);
                 frame.setResizable(false);
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                frame.setLayout(new BorderLayout());
-                //frame.pack();
                 frame.setVisible(true);
 
 
@@ -31,23 +29,21 @@ public class Main {
                 frame.setFocusableWindowState(true);
                 frame.requestFocus();
 
-                //JPanel panel = new JPanel();
-                //panel.setVisible(true);
-                //frame.add(panel);
+
+
 
                 // from here we work with figure
-                ShowSomeGraphics figure = new ShowSomeGraphics(370, 0, RECTWIDTH, RECTHEIGHT);
-                ShowStaticGraphics figure2 = new ShowStaticGraphics(400, 300);
-                ShowStaticGraphics figure3 = new ShowStaticGraphics(450, 350);
+                ShowSomeGraphics figure = new ShowSomeGraphics(370, 420,  0, 0, RECTWIDTH, RECTHEIGHT);
+                ShowStaticGraphics figure2 = new ShowStaticGraphics(400, 300, 100, 50);
+                ShowStaticGraphics figure3 = new ShowStaticGraphics(450, 350, 50, 100);
 
                 // why only last added shown?
-                frame.add(figure2);
-                frame.add(figure3);
+                //frame.add(figure2);
+                //frame.add(figure3);
                 frame.add(figure);
                 //panel.add(figure);
                 //frame.add(figure2);
                 //frame.add(figure3);
-                //frame.pack();
 
 
                 // Here we move our figure to bottom
@@ -56,6 +52,8 @@ public class Main {
                     public void actionPerformed(ActionEvent e) {
                         figure.setY(1);
                         figure.repaint();
+                        figure2.repaint();
+                        figure3.repaint();
 
                         // if we reach bottom - begin from top again
                         if (figure.getY() == FRAMEHEIGHT - 30 - figure.getHeight()){
