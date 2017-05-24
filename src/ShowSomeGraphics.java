@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ShowSomeGraphics extends Canvas {
 
@@ -8,6 +9,8 @@ public class ShowSomeGraphics extends Canvas {
     private int y1;
     private int width;
     private int height;
+    private ArrayList<Integer> oldX = new ArrayList();
+    private ArrayList<Integer> oldY = new ArrayList();
 
     public ShowSomeGraphics() {
 
@@ -31,7 +34,14 @@ public class ShowSomeGraphics extends Canvas {
 
     public void paint(Graphics g) {
         g.fillRect(x, y, width, height);
-        g.fillRect(x1, y1, width, height);
+
+        if(oldY.size() != 0 && oldX.size() != 0){
+            for(int i = 0; i < oldX.size(); ++i){
+                g.fillRect(oldX.get(i), oldY.get(i), width, height);
+            }
+
+        }
+
     }
 
     public void setX(int x) {
@@ -43,7 +53,10 @@ public class ShowSomeGraphics extends Canvas {
         } else {
             this.x = this.x + x;
         }
+
+
     }
+
 
     public void setY(int y) {
         if (this.y + y < 0) {
@@ -53,6 +66,8 @@ public class ShowSomeGraphics extends Canvas {
         } else {
             this.y = this.y + y;
         }
+
+
     }
 
     public int getX(){
@@ -79,6 +94,13 @@ public class ShowSomeGraphics extends Canvas {
         return this.height;
     }
 
+    public void setOldX(int x){
+        oldX.add(x);
+    }
+
+    public void setOldY(int y){
+        oldY.add(y);
+    }
 }
 
 

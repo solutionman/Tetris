@@ -12,7 +12,7 @@ public class Main {
 
         final int FRAMEWIDTH = 800;
         final int FRAMEHEIGHT = 600;
-        final int RECTWIDTH = 50;
+        final int RECTWIDTH = 100;
         final int RECTHEIGHT = 50;
 
         SwingUtilities.invokeLater(new Runnable() {
@@ -60,6 +60,9 @@ public class Main {
                             //ShowSomeGraphics figure2 = new ShowSomeGraphics(figure.getX(), figure.getY(), RECTWIDTH, RECTHEIGHT);
                             //frame.add(figure2);
                             //figure2.repaint();
+
+                            figure.setOldX(figure.getX());
+                            figure.setOldY(figure.getY());
 
                             figure.setX(-(370 - figure.getX()));
                             figure.setY(-520);
