@@ -33,7 +33,7 @@ public class Main {
 
 
                 // from here we work with figure
-                ShowSomeGraphics figure = new ShowSomeGraphics(370, 420,  0, 0, RECTWIDTH, RECTHEIGHT);
+                ShowSomeGraphics figure = new ShowSomeGraphics(370, 0, RECTWIDTH, RECTHEIGHT);
                 ShowStaticGraphics figure2 = new ShowStaticGraphics(400, 300, 100, 50);
                 ShowStaticGraphics figure3 = new ShowStaticGraphics(450, 350, 50, 100);
 
@@ -57,15 +57,16 @@ public class Main {
 
                         // if we reach bottom - begin from top again
                         if (figure.getY() == FRAMEHEIGHT - 30 - figure.getHeight()){
-                            //ShowSomeGraphics figure2 = new ShowSomeGraphics(figure.getX(), figure.getY(), RECTWIDTH, RECTHEIGHT);
-                            //frame.add(figure2);
-                            //figure2.repaint();
 
                             figure.setOldX(figure.getX());
                             figure.setOldY(figure.getY());
+                            figure.setOldHeight(figure.getHeight());
+                            figure.setOldWidth(figure.getHeight());
 
                             figure.setX(-(370 - figure.getX()));
                             figure.setY(-520);
+                            figure.setHeight(50);
+                            figure.setWidth(100);
                             figure.repaint();
                         }
                     }

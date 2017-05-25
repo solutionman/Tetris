@@ -9,8 +9,10 @@ public class ShowSomeGraphics extends Canvas {
     private int y1;
     private int width;
     private int height;
-    private ArrayList<Integer> oldX = new ArrayList();
-    private ArrayList<Integer> oldY = new ArrayList();
+    private ArrayList<Integer> oldX = new ArrayList<>();
+    private ArrayList<Integer> oldY = new ArrayList<>();
+    private ArrayList<Integer> oldWidth = new ArrayList<>();
+    private ArrayList<Integer> oldHeight = new ArrayList<>();
 
     public ShowSomeGraphics() {
 
@@ -37,7 +39,7 @@ public class ShowSomeGraphics extends Canvas {
 
         if(oldY.size() != 0 && oldX.size() != 0){
             for(int i = 0; i < oldX.size(); ++i){
-                g.fillRect(oldX.get(i), oldY.get(i), width, height);
+                g.fillRect(oldX.get(i), oldY.get(i), oldWidth.get(i), oldHeight.get(i));
             }
 
         }
@@ -101,6 +103,17 @@ public class ShowSomeGraphics extends Canvas {
     public void setOldY(int y){
         oldY.add(y);
     }
+
+    public void setOldWidth(int width){
+        this.oldWidth.add(width);
+    }
+
+    public void setOldHeight(int height){
+        this.oldHeight.add(height);
+    }
+
 }
+
+
 
 
