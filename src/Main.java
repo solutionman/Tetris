@@ -61,7 +61,7 @@ public class Main {
                             figure.setOldX(figure.getX());
                             figure.setOldY(figure.getY());
                             figure.setOldHeight(figure.getHeight());
-                            figure.setOldWidth(figure.getHeight());
+                            figure.setOldWidth(figure.getWidth());
 
                             figure.setX(-(370 - figure.getX()));
                             figure.setY(-520);
