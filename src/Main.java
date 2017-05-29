@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -54,6 +55,11 @@ public class Main {
                         figure.repaint();
                         figure2.repaint();
                         figure3.repaint();
+
+                        // stop figure on top of another figure
+                        if(figure.getY() == FRAMEHEIGHT - figure.getHeight()){
+                            
+                        }
 
                         // if we reach bottom - begin from top again
                         if (figure.getY() == FRAMEHEIGHT - 30 - figure.getHeight()){

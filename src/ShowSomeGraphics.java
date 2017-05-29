@@ -72,6 +72,22 @@ public class ShowSomeGraphics extends Canvas {
 
     }
 
+
+    // getting highest point of figure
+    // shit, i need also a X coordinate
+    public int getBiggestOldY(){
+        int biggestOldY = 0;
+
+        for(int i = 0; i < oldY.size(); ++i){
+            if (biggestOldY < oldY.get(i)){
+                biggestOldY = oldY.get(i);
+            }
+        }
+
+        return biggestOldY;
+    }
+
+
     public int getX(){
         return this.x;
     }
@@ -110,6 +126,10 @@ public class ShowSomeGraphics extends Canvas {
 
     public void setOldHeight(int height){
         this.oldHeight.add(height);
+    }
+
+    public ArrayList<Integer> getOldY(){
+        return oldY;
     }
 
 }
