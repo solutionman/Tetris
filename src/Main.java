@@ -57,12 +57,25 @@ public class Main {
                         figure3.repaint();
 
                         // stop figure on top of another figure
-                        if(figure.getY() == FRAMEHEIGHT - figure.getHeight()){
-                            
-                        }
+                        // TODO should also know the position in x coordinate
+                        int biggestOldY = figure.getBiggestOldY();
 
-                        // if we reach bottom - begin from top again
-                        if (figure.getY() == FRAMEHEIGHT - 30 - figure.getHeight()){
+                        if(figure.getY() == FRAMEHEIGHT - figure.getHeight() - biggestOldY){
+                            // printing - for debugging - always get 520, very strange
+                            System.out.println(biggestOldY);
+                            figure.setOldX(figure.getX());
+                            figure.setOldY(figure.getY());
+                            figure.setOldHeight(figure.getHeight());
+                            figure.setOldWidth(figure.getWidth());
+
+                            figure.setX(-(370  - figure.getX()));
+                            figure.setY(-520 + biggestOldY);
+                            figure.setHeight(50);
+                            figure.setWidth(100);
+                            figure.repaint();
+
+                            // if we reach bottom - begin from top again
+                        } else if (figure.getY() == FRAMEHEIGHT - 30 - figure.getHeight()){
 
                             figure.setOldX(figure.getX());
                             figure.setOldY(figure.getY());
