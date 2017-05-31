@@ -37,6 +37,9 @@ public class ShowSomeGraphics extends Canvas {
     public void paint(Graphics g) {
         g.fillRect(x, y, width, height);
 
+        // debugging y changes, ok
+        // System.out.println(y);
+
         if(oldY.size() != 0 && oldX.size() != 0){
             for(int i = 0; i < oldX.size(); ++i){
                 g.fillRect(oldX.get(i), oldY.get(i), oldWidth.get(i), oldHeight.get(i));
@@ -79,8 +82,10 @@ public class ShowSomeGraphics extends Canvas {
         int biggestOldY = 0;
 
         for(int i = 0; i < oldY.size(); ++i){
+            //System.out.println(oldY.get(i));
             if (biggestOldY < oldY.get(i)){
                 biggestOldY = oldY.get(i);
+                //System.out.println(biggestOldY);
             }
         }
 
@@ -93,6 +98,8 @@ public class ShowSomeGraphics extends Canvas {
     }
 
     public int getY(){
+        // debugging - here ok too, wtf?
+        System.out.println(y);
         return this.y;
     }
 

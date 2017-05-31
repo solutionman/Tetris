@@ -61,10 +61,12 @@ public class Main {
                         int biggestOldY = figure.getBiggestOldY();
 
                         if(figure.getY() == FRAMEHEIGHT - figure.getHeight() - biggestOldY){
-                            // printing - for debugging - always get 520, very strange
-                            System.out.println(biggestOldY);
+                            // printing - for debugging - get 520 - that's ok
+                            //System.out.println(biggestOldY);
                             figure.setOldX(figure.getX());
+                            // here the problem , but why y is always 30 ?
                             figure.setOldY(figure.getY());
+                            System.out.println(figure.getY());
                             figure.setOldHeight(figure.getHeight());
                             figure.setOldWidth(figure.getWidth());
 
