@@ -63,6 +63,7 @@ public class ShowSomeGraphics extends Canvas {
     }
 
 
+    // for moving down
     public void setY(int y) {
         if (this.y + y < 0) {
             this.y = 0;
@@ -99,7 +100,7 @@ public class ShowSomeGraphics extends Canvas {
 
     public int getY(){
         // debugging - here ok too, wtf?
-        System.out.println(y);
+        //System.out.println(y);
         return this.y;
     }
 
@@ -124,6 +125,7 @@ public class ShowSomeGraphics extends Canvas {
     }
 
     public void setOldY(int y){
+        //System.out.println(y);
         oldY.add(y);
     }
 

@@ -25,27 +25,15 @@ public class Main {
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 frame.setVisible(true);
 
-
                 frame.setFocusable(true);
                 frame.setFocusableWindowState(true);
                 frame.requestFocus();
 
 
-
-
                 // from here we work with figure
                 ShowSomeGraphics figure = new ShowSomeGraphics(370, 0, RECTWIDTH, RECTHEIGHT);
-                ShowStaticGraphics figure2 = new ShowStaticGraphics(400, 300, 100, 50);
-                ShowStaticGraphics figure3 = new ShowStaticGraphics(450, 350, 50, 100);
 
-                // why only last added shown?
-                //frame.add(figure2);
-                //frame.add(figure3);
                 frame.add(figure);
-                //panel.add(figure);
-                //frame.add(figure2);
-                //frame.add(figure3);
-
 
                 // Here we move our figure to bottom
                 Timer timer = new Timer(20, new ActionListener() {
@@ -53,20 +41,19 @@ public class Main {
                     public void actionPerformed(ActionEvent e) {
                         figure.setY(1);
                         figure.repaint();
-                        figure2.repaint();
-                        figure3.repaint();
 
                         // stop figure on top of another figure
                         // TODO should also know the position in x coordinate
                         int biggestOldY = figure.getBiggestOldY();
 
-                        if(figure.getY() == FRAMEHEIGHT - figure.getHeight() - biggestOldY){
+                        if(figure.getY() + figure.getHeight() == biggestOldY){
+                            System.out.println( figure.getY() + "  " + figure.getHeight() + "  " + biggestOldY );
                             // printing - for debugging - get 520 - that's ok
                             //System.out.println(biggestOldY);
                             figure.setOldX(figure.getX());
                             // here the problem , but why y is always 30 ?
                             figure.setOldY(figure.getY());
-                            System.out.println(figure.getY());
+                            //System.out.println(figure.getY());
                             figure.setOldHeight(figure.getHeight());
                             figure.setOldWidth(figure.getWidth());
 
