@@ -48,17 +48,14 @@ public class Main {
 
                         if(figure.getY() + figure.getHeight() == biggestOldY){
                             System.out.println( figure.getY() + "  " + figure.getHeight() + "  " + biggestOldY );
-                            // printing - for debugging - get 520 - that's ok
-                            //System.out.println(biggestOldY);
                             figure.setOldX(figure.getX());
-                            // here the problem , but why y is always 30 ?
                             figure.setOldY(figure.getY());
-                            //System.out.println(figure.getY());
                             figure.setOldHeight(figure.getHeight());
                             figure.setOldWidth(figure.getWidth());
 
                             figure.setX(-(370  - figure.getX()));
-                            figure.setY(-520 + biggestOldY);
+                            figure.setY(-biggestOldY);
+                            System.out.println(figure.getY());
                             figure.setHeight(50);
                             figure.setWidth(100);
                             figure.repaint();
