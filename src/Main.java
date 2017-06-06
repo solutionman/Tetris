@@ -48,6 +48,7 @@ public class Main {
 
                         if(figure.getY() + figure.getHeight() == biggestOldY){
                             System.out.println( figure.getY() + "  " + figure.getHeight() + "  " + biggestOldY );
+                            //System.out.println(figure.getOldX());
                             figure.setOldX(figure.getX());
                             figure.setOldY(figure.getY());
                             figure.setOldHeight(figure.getHeight());
@@ -55,7 +56,7 @@ public class Main {
 
                             figure.setX(-(370  - figure.getX()));
                             figure.setY(-biggestOldY);
-                            System.out.println(figure.getY());
+                            //System.out.println(figure.getY());
                             figure.setHeight(50);
                             figure.setWidth(100);
                             figure.repaint();

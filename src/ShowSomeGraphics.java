@@ -4,9 +4,7 @@ import java.util.ArrayList;
 public class ShowSomeGraphics extends Canvas {
 
     private int x;
-    private int x1;
     private int y;
-    private int y1;
     private int width;
     private int height;
     private ArrayList<Integer> oldX = new ArrayList<>();
@@ -21,15 +19,6 @@ public class ShowSomeGraphics extends Canvas {
     public ShowSomeGraphics(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
-    }
-
-    public ShowSomeGraphics(int x, int x1, int y, int y1, int width, int height){
-        this.x = x;
-        this.x1 = x1;
-        this.y = y;
-        this.y1  = y1;
         this.width = width;
         this.height = height;
     }
@@ -77,14 +66,13 @@ public class ShowSomeGraphics extends Canvas {
     }
 
 
-    // getting highest point of figure
-    // shit, i need also a X coordinate
+    // Let's try to analyze the x coordinate - it almost works
     public int getBiggestOldY(){
         int biggestOldY = 0;
 
         for(int i = 0; i < oldY.size(); ++i){
             //System.out.println(oldY.get(i));
-            if (biggestOldY < oldY.get(i)){
+            if (biggestOldY < oldY.get(i) && x == oldX.get(i)){
                 biggestOldY = oldY.get(i);
                 //System.out.println(biggestOldY);
             }
