@@ -62,17 +62,17 @@ public class ShowSomeGraphics extends Canvas {
             this.y = this.y + y;
         }
 
-
     }
 
 
     // Let's try to analyze the x coordinate - it almost works
+    // shit, seems like  I need look at smallest, not biggest
     public int getBiggestOldY(){
-        int biggestOldY = 0;
+        int biggestOldY = 600;
 
         for(int i = 0; i < oldY.size(); ++i){
             //System.out.println(oldY.get(i));
-            if (biggestOldY < oldY.get(i) && x == oldX.get(i)){
+            if (biggestOldY > oldY.get(i) && x == oldX.get(i)){
                 biggestOldY = oldY.get(i);
                 //System.out.println(biggestOldY);
             }
@@ -113,8 +113,11 @@ public class ShowSomeGraphics extends Canvas {
     }
 
     public void setOldY(int y){
-        //System.out.println(y);
         oldY.add(y);
+        for(int a : oldY){
+            System.out.println(a);
+        }
+
     }
 
     public void setOldWidth(int width){

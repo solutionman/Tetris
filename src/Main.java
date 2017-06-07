@@ -47,7 +47,7 @@ public class Main {
                         int biggestOldY = figure.getBiggestOldY();
 
                         if(figure.getY() + figure.getHeight() == biggestOldY){
-                            System.out.println( figure.getY() + "  " + figure.getHeight() + "  " + biggestOldY );
+                            //System.out.println( figure.getY() + "  " + figure.getHeight() + "  " + biggestOldY );
                             //System.out.println(figure.getOldX());
                             figure.setOldX(figure.getX());
                             figure.setOldY(figure.getY());
