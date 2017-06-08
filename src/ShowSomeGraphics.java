@@ -67,6 +67,7 @@ public class ShowSomeGraphics extends Canvas {
 
     // Let's try to analyze the x coordinate - it almost works
     // shit, seems like  I need look at smallest, not biggest
+    // somehow we have to get intersection
     public int getBiggestOldY(){
         int biggestOldY = 600;
 
@@ -114,8 +115,9 @@ public class ShowSomeGraphics extends Canvas {
 
     public void setOldY(int y){
         oldY.add(y);
+        // for debugging
         for(int a : oldY){
-            System.out.println(a);
+            //System.out.println(a);
         }
 
     }
