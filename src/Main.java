@@ -46,9 +46,10 @@ public class Main {
                         // TODO should also know the position in x coordinate
                         int biggestOldY = figure.getBiggestOldY();
 
-                        if(figure.getY() + figure.getHeight() == biggestOldY){
+                        if( (figure.getY() + figure.getHeight() ) == biggestOldY){
                             int temp = figure.getY() + figure.getHeight() ;
                             System.out.println("sum = " + temp + "   bigestOldY = " +  biggestOldY);
+                            System.out.println(figure.getWidth());
                             figure.setOldX(figure.getX());
                             figure.setOldY(figure.getY());
                             figure.setOldHeight(figure.getHeight());

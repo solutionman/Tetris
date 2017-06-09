@@ -73,7 +73,9 @@ public class ShowSomeGraphics extends Canvas {
 
         for(int i = 0; i < oldY.size(); ++i){
             //System.out.println(oldY.get(i));
-            if (biggestOldY > oldY.get(i) && x == oldX.get(i)){
+            // the crossing with x coordinate is here
+            if (biggestOldY > oldY.get(i) && (x >= oldX.get(i) || x <= oldX.get(i))){
+                //System.out.println("x = " + x + "  x + width = " + );
                 biggestOldY = oldY.get(i);
                 //System.out.println(biggestOldY);
             }
