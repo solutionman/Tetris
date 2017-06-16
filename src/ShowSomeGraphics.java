@@ -74,11 +74,26 @@ public class ShowSomeGraphics extends Canvas {
         for(int i = 0; i < oldY.size(); ++i){
             //System.out.println(oldY.get(i));
             // the crossing with x coordinate is here
+
+            // this intersection works only with complete matches of figures
+            /*
+            if(biggestOldY > oldY.get(i) && x == oldX.get(i)){
+                biggestOldY = oldY.get(i);
+            }
+            */
+
+            // well, this intersection is quite buggy
+
             if (biggestOldY > oldY.get(i) && x >= oldX.get(i) - this.width + 1 && x <= oldX.get(i) + this.width - 1 ){
-                //System.out.println("x = " + x + "  x + width = " + );
+                // for debugging
+                int temp = oldX.get(i) - this.width + 1;
+                int temp2 = oldX.get(i) + this.width - 1;
+                System.out.println("x = " + x + "  oldX  = " + oldX.get(i) + "  oldX - width = " + temp + "  oldX + width " + temp2);
+
                 biggestOldY = oldY.get(i);
                 //System.out.println(biggestOldY);
             }
+
         }
 
         return biggestOldY;

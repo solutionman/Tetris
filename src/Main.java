@@ -43,7 +43,7 @@ public class Main {
                         figure.repaint();
 
                         // stop figure on top of another figure
-                        // TODO should also know the position in x coordinate
+                        // TODO bug on x coordinate with rotated figure
                         int biggestOldY = figure.getBiggestOldY();
 
                         if( (figure.getY() + figure.getHeight() ) == biggestOldY){
