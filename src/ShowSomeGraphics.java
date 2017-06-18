@@ -84,7 +84,7 @@ public class ShowSomeGraphics extends Canvas {
 
             // well, this intersection is quite buggy
 
-            if (biggestOldY > oldY.get(i) && x >= oldX.get(i) - this.width + 1 && x <= oldX.get(i) + this.width - 1 ){
+            if (biggestOldY > oldY.get(i) && x >= oldX.get(i) - this.oldWidth.get(i) + 1 && x <= oldX.get(i) + this.oldWidth.get(i) - 1 ){
                 // for debugging
                 int temp = oldX.get(i) - this.width + 1;
                 int temp2 = oldX.get(i) + this.width - 1;
