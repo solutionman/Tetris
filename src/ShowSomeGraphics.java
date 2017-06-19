@@ -83,12 +83,14 @@ public class ShowSomeGraphics extends Canvas {
             */
 
             // well, this intersection is quite buggy
+            // shit, seems like I need to the left divide the current width,
+            // and to the right add the old width
 
-            if (biggestOldY > oldY.get(i) && x >= oldX.get(i) - this.oldWidth.get(i) + 1 && x <= oldX.get(i) + this.oldWidth.get(i) - 1 ){
+            if (biggestOldY > oldY.get(i) && x > oldX.get(i) - this.width && x < oldX.get(i) + this.oldWidth.get(i) ){
                 // for debugging
-                int temp = oldX.get(i) - this.width + 1;
-                int temp2 = oldX.get(i) + this.width - 1;
-                System.out.println("x = " + x + "  oldX  = " + oldX.get(i) + "  oldX - width = " + temp + "  oldX + width " + temp2);
+                int temp = oldX.get(i) - this.oldWidth.get(i);
+                int temp2 = oldX.get(i) + this.oldWidth.get(i);
+                System.out.println("x = " + x + "  oldX  = " + oldX.get(i) + "  oldX - oldWidth = " + temp + "  oldX + oldWidth " + temp2);
 
                 biggestOldY = oldY.get(i);
                 //System.out.println(biggestOldY);
