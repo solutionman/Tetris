@@ -46,24 +46,24 @@ public class Main {
                         // TODO bug on x coordinate with rotated figure
                         int biggestOldY = figure.getBiggestOldY();
 
-                        if( (figure.getY() + figure.getHeight() ) == biggestOldY){
-                            int temp = figure.getY() + figure.getHeight() ;
-                            System.out.println("sum = " + temp + "   bigestOldY = " +  biggestOldY);
+                        if ((figure.getY() + figure.getHeight()) == biggestOldY) {
+                            int temp = figure.getY() + figure.getHeight();
+                            System.out.println("sum = " + temp + "   bigestOldY = " + biggestOldY);
                             System.out.println(figure.getWidth());
                             figure.setOldX(figure.getX());
                             figure.setOldY(figure.getY());
                             figure.setOldHeight(figure.getHeight());
                             figure.setOldWidth(figure.getWidth());
 
-                            figure.setX(-(370  - figure.getX()));
+                            figure.setX(-(370 - figure.getX()));
                             figure.setY(-biggestOldY);
                             //System.out.println(figure.getY());
-                            figure.setHeight(50);
-                            figure.setWidth(100);
+                            figure.setHeight((int) (Math.random() * 50 + 50));
+                            figure.setWidth((int) (Math.random() * 100 + 50));
                             figure.repaint();
 
                             // if we reach bottom - begin from top again
-                        } else if (figure.getY() == FRAMEHEIGHT - 30 - figure.getHeight()){
+                        } else if (figure.getY() == FRAMEHEIGHT - 30 - figure.getHeight()) {
 
                             figure.setOldX(figure.getX());
                             figure.setOldY(figure.getY());
@@ -72,8 +72,8 @@ public class Main {
 
                             figure.setX(-(370 - figure.getX()));
                             figure.setY(-520);
-                            figure.setHeight(50);
-                            figure.setWidth(100);
+                            figure.setHeight((int) (Math.random() * 50 + 50));
+                            figure.setWidth((int) (Math.random() * 100 + 50));
                             figure.repaint();
                         }
                     }
@@ -101,7 +101,7 @@ public class Main {
                             int temp = figure.getWidth();
                             figure.setWidth(figure.getHeight());
                             figure.setHeight(temp);
-                            if(figure.getX() > FRAMEWIDTH - figure.getWidth()){
+                            if (figure.getX() > FRAMEWIDTH - figure.getWidth()) {
                                 figure.setX(100);
                             }
                             figure.repaint();
