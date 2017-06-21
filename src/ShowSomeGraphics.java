@@ -38,13 +38,17 @@ public class ShowSomeGraphics extends Canvas {
 
     }
 
+    // TODO I should analyze intersection with old figures
     public void setX(int x) {
 
         if (this.x + x > 800 - width) {
             this.x = 800 - width;
         } else if (this.x + x < 0) {
             this.x = 0;
-        } else {
+        } else if(this.x + x > getBigestOldX(this.x)){
+            // in work
+            this.x = getBigestOldX(this.x);
+        }else{
             this.x = this.x + x;
         }
 
@@ -65,32 +69,17 @@ public class ShowSomeGraphics extends Canvas {
     }
 
 
-    // Let's try to analyze the x coordinate - it almost works
-    // shit, seems like  I need look at smallest, not biggest
-    // somehow we have to get intersection
+    // biggest (in fact smallest) coordinates of oldY with intersection on x
     public int getBiggestOldY(){
         int biggestOldY = 600;
 
         for(int i = 0; i < oldY.size(); ++i){
-            //System.out.println(oldY.get(i));
-            // the crossing with x coordinate is here
-
-            // this intersection works only with complete matches of figures
-            /*
-            if(biggestOldY > oldY.get(i) && x == oldX.get(i)){
-                biggestOldY = oldY.get(i);
-            }
-            */
-
-            // well, this intersection is quite buggy
-            // shit, seems like I need to the left divide the current width,
-            // and to the right add the old width
 
             if (biggestOldY > oldY.get(i) && x > oldX.get(i) - this.width && x < oldX.get(i) + this.oldWidth.get(i) ){
                 // for debugging
-                int temp = oldX.get(i) - this.oldWidth.get(i);
-                int temp2 = oldX.get(i) + this.oldWidth.get(i);
-                System.out.println("x = " + x + "  oldX  = " + oldX.get(i) + "  oldX - oldWidth = " + temp + "  oldX + oldWidth " + temp2);
+                //int temp = oldX.get(i) - this.oldWidth.get(i);
+                //int temp2 = oldX.get(i) + this.oldWidth.get(i);
+                //System.out.println("x = " + x + "  oldX  = " + oldX.get(i) + "  oldX - oldWidth = " + temp + "  oldX + oldWidth " + temp2);
 
                 biggestOldY = oldY.get(i);
                 //System.out.println(biggestOldY);
@@ -99,6 +88,16 @@ public class ShowSomeGraphics extends Canvas {
         }
 
         return biggestOldY;
+    }
+
+    // biggest of oldX coordinates for intersection on y
+    // TODO in work
+    public int getBigestOldX(int currentX){
+        int biggestOldX = 800;
+            for(int i  = 0; i < oldX.size(); ++i){
+                
+            }
+        return biggestOldX;
     }
 
 
