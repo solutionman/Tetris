@@ -95,7 +95,9 @@ public class ShowSomeGraphics extends Canvas {
     public int getBigestOldX(int currentX){
         int biggestOldX = 800;
             for(int i  = 0; i < oldX.size(); ++i){
-                
+                if(biggestOldX > oldX.get(i) && y > oldY.get(i) - this.height && y < oldY.get(i) + this.oldHeight.get(i)){
+                    biggestOldX = oldX.get(i);
+                }
             }
         return biggestOldX;
     }
