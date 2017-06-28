@@ -45,9 +45,12 @@ public class ShowSomeGraphics extends Canvas {
             this.x = 800 - width;
         } else if (this.x + x < 0) {
             this.x = 0;
-        } else if(this.x + x > getBigestOldX(this.x)){
+        } else if(this.x + x > getBiggestOldX(this.x) - this.width){
+            // working
+            this.x = getBiggestOldX(this.x) - this.width;
+        }else if(this.x + x < getSmallestOldX(this.x)){
             // in work
-            this.x = getBigestOldX(this.x);
+            this.x = getSmallestOldX(this.x);
         }else{
             this.x = this.x + x;
         }
@@ -92,7 +95,7 @@ public class ShowSomeGraphics extends Canvas {
 
     // biggest of oldX coordinates for intersection on y
     // TODO in work
-    public int getBigestOldX(int currentX){
+    public int getBiggestOldX(int currentX){
         int biggestOldX = 800;
             for(int i  = 0; i < oldX.size(); ++i){
                 if(biggestOldX > oldX.get(i) && y > oldY.get(i) - this.height && y < oldY.get(i) + this.oldHeight.get(i)){
@@ -100,6 +103,18 @@ public class ShowSomeGraphics extends Canvas {
                 }
             }
         return biggestOldX;
+    }
+
+    // smallest of OldX coordinates for intersection on y
+    // TODO in work
+    public int getSmallestOldX(int currentX){
+        int smallestOldX = 0;
+            for(int i  = 0; i < oldX.size(); ++i){
+                if(smallestOldX < oldX.get(i) + oldWidth.get(i) && y > oldY.get(i) - this.height && y < oldY.get(i) + this.oldHeight.get(i)){
+                    smallestOldX = oldX.get(i);
+                }
+            }
+        return smallestOldX;
     }
 
 
