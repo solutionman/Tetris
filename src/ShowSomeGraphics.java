@@ -111,7 +111,7 @@ public class ShowSomeGraphics extends Canvas {
         int smallestOldX = 0;
             for(int i  = 0; i < oldX.size(); ++i){
                 if(smallestOldX < oldX.get(i) + oldWidth.get(i) && y > oldY.get(i) - this.height && y < oldY.get(i) + this.oldHeight.get(i)){
-                    smallestOldX = oldX.get(i);
+                    smallestOldX = oldX.get(i) + oldWidth.get(i);
                 }
             }
         return smallestOldX;
